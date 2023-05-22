@@ -1,23 +1,25 @@
-pool:
-  vmImage: ubuntu-latest
+jobs:
+- job: 
+  pool:
+    vmImage: ubuntu-latest
 
-steps:
+  steps:
 
-- task: SonarCloudPrepare@1
-  inputs:
-    SonarCloud: 'Sonarcloud'
-    organization: 'mrcuraqueo'
-    projectKey: 'mrCuraqueo_microservicio-spring'
-    projectName: 'microservicio-spring'
-  displayName: 'SonarCloud Prepare'
+  - task: SonarCloudPrepare@1
+    inputs:
+      SonarCloud: 'Sonarcloud'
+      organization: 'mrcuraqueo'
+      projectKey: 'mrCuraqueo_microservicio-spring'
+      projectName: 'microservicio-spring'
+    displayName: 'SonarCloud Prepare'
 
-- task: Gradle@3
-  inputs:
-    gradleWrapperFile: 'gradlew'
-    tasks: 'sonarqube'
-    publishJUnitResults: false
-    javaHomeOption: 'JDKVersion'
-    sonarQubeRunAnalysis: true
-    sqGradlePluginVersionChoice: 'specify'
-    sonarQubeGradlePluginVersion: '3.5.0.273'
-    spotBugsAnalysis: false
+  - task: Gradle@3
+    inputs:
+      gradleWrapperFile: 'gradlew'
+      tasks: 'sonarqube'
+      publishJUnitResults: false
+      javaHomeOption: 'JDKVersion'
+      sonarQubeRunAnalysis: true
+      sqGradlePluginVersionChoice: 'specify'
+      sonarQubeGradlePluginVersion: '3.5.0.273'
+      spotBugsAnalysis: false
