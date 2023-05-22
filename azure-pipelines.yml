@@ -2,7 +2,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-  - 
+
 - task: SonarCloudPrepare@1
   inputs:
     SonarCloud: 'Sonarcloud'
@@ -20,5 +20,5 @@ steps:
     javaHomeOption: 'JDKVersion'
     sonarQubeRunAnalysis: true
     sqGradlePluginVersionChoice: 'specify'
-    sonarQubeGradlePluginVersion: '3.3'
+    sonarQubeGradlePluginVersion: '3.5.0.273'
     spotBugsAnalysis: false
